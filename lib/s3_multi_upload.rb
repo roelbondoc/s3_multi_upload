@@ -27,6 +27,8 @@ module S3_Multi_Upload
 
       @object  = @bucket.objects[options[:key] || @file.basename]
 
+      @object.reduced_redundancy = (options[:reduced_redundancy] == 'true')
+
       enqueue
     end
 
